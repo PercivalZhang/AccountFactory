@@ -10,9 +10,15 @@
       "log_date_format"   : "YYYY-MM-DD HH:mm Z",
       "out_file"          : "log/account-factory/stdout-1.log",
       "error_file"        : "log/account-factory/stderr-1.log",
-      "env": {
+      "env_private": {
         "PORT": 11018,
         "NETWORK": "private",
+        "NODE_ENV": "debug",
+        "DEBUG"   : "*"
+      },
+      "env_main": {
+        "PORT": 11018,
+        "NETWORK": "main",
         "NODE_ENV": "debug",
         "DEBUG"   : "*"
       }
@@ -26,7 +32,15 @@
       "max_memory_restart"  : "20M",
       "log_date_format"   : "YYYY-MM-DD HH:mm Z",
       "out_file"          : "log/account-factory/stdout-auth.log",
-      "error_file"        : "log/account-factory/stderr-auth.log"
+      "error_file"        : "log/account-factory/stderr-auth.log",
+      "env_private": {
+        "NODE_ENV": "debug",
+        "DEBUG"   : "*"
+      },
+      "env_main": {
+        "NODE_ENV": "debug",
+        "DEBUG"   : "*"
+      }
     }
   ]
 }
