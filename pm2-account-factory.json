@@ -11,7 +11,7 @@
       "out_file"          : "log/account-factory/stdout-1.log",
       "error_file"        : "log/account-factory/stderr-1.log",
       "env": {
-        "PORT": 9083,
+        "PORT": 11018,
         "NETWORK": "private",
         "NODE_ENV": "debug",
         "DEBUG"   : "*"
