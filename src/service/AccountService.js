@@ -20,6 +20,13 @@ if(process.env.NETWORK === 'private') {
     web3 = new Web3(new Web3.providers.HttpProvider(Config.network.main.providerUrl));
 }
 
+web3.eth.net.isListening().then(() => {
+    Debug('eth network is connected');
+}).catch(err => {
+    Debug('failed to connect to eth network: %s', err.toString());
+    process.exit(0);
+});
+
 const addAccountsIntoDB = (accounts) => {
     let strValues = "";
     for(let i = 0; i < accounts.length; i++) {
