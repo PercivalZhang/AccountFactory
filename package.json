@@ -1,0 +1,44 @@
+{
+  "name": "airdrop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel -w src/ -d dist --source-maps",
+    "start-auth": "DEBUG='factory:*' node dist/bin/authenticator.js",
+    "start": "DEBUG='factory:*' node dist/bin/server-account-factory.js",
+    "deploy": "./deploy.sh",
+    "clean": "rm -rf dist/"
+  },
+  "author": "mingqi@email.com",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "bluebird": "^3.5.1",
+    "config": "^1.30.0",
+    "cron": "^1.3.0",
+    "debug": "^3.1.0",
+    "dotenv": "^6.0.0",
+    "keythereum": "^1.0.4",
+    "mysql2": "^1.5.3",
+    "npm": "^6.1.0",
+    "randomstring": "^1.1.5",
+    "restify": "^7.2.1",
+    "restify-router": "^0.5.0",
+    "sequelize": "^4.31.0",
+    "web3": "^1.0.0-beta.34",
+    "web3-utils": "^1.0.0-beta.34"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

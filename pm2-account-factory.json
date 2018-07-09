@@ -1,0 +1,32 @@
+{
+  "apps" : [
+    {
+      // Application #1
+      "name"        : "account-factory-1",
+      "script"      : "dist/bin/server-account-factory.js",
+      "watch"       : false,
+      "merge_logs"  : true,
+      "max_memory_restart"  : "200M",
+      "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+      "out_file"          : "log/account-factory/stdout-1.log",
+      "error_file"        : "log/account-factory/stderr-1.log",
+      "env": {
+        "PORT": 9083,
+        "NETWORK": "private",
+        "NODE_ENV": "debug",
+        "DEBUG"   : "*"
+      }
+    },
+    {
+      // Application #auth
+      "name"        : "authenticator",
+      "script"      : "dist/bin/authenticator.js",
+      "watch"       : false,
+      "merge_logs"  : true,
+      "max_memory_restart"  : "20M",
+      "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+      "out_file"          : "log/account-factory/stdout-auth.log",
+      "error_file"        : "log/account-factory/stderr-auth.log"
+    }
+  ]
+}
