@@ -15,6 +15,7 @@ new CronJob('* */1 * * * *', function () {
         length: 10,
         charset: 'hex'
     });
+    console.log(authCode);
     let filePath = path.resolve(__dirname, Config.filePath.authenticatorFile);
     fs.writeFile(filePath, authCode,  function(err) {
         if (err) {
