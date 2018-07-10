@@ -7,11 +7,13 @@ const Debug = require('debug')('factory:account-robot');
 
 Debug(__dirname);
 
-let count = 10;
-const level1 = 1790;
-const level2 = 1810;
-const level3 = 1820;
-const max = 100000;
+Debug("++++++++++++++load robot+++++++++++++++++");
+
+let count = 30;
+const level1 = 10000;
+const level2 = 20000;
+const level3 = 50000;
+const max = 90000;
 let ratioLevel1Adjusted = false;
 let ratioLevel2Adjusted = false;
 let ratioLevel3Adjusted = false;
@@ -19,12 +21,8 @@ const level1DampingRatio = 0.8;
 const level2DampingRatio = 0.6;
 const level3DampingRatio = 0.4;
 
-new CronJob('*/5 * * * * *', function () {
+new CronJob('* */5 1-16 * * *', function () {
     acccountService.newAccounts(count).then(ret => {
-        Debug(ret.totalCountBeforeAdded);
-        Debug("ratioLevel1Adjusted: %s", ratioLevel1Adjusted);
-        Debug("ratioLevel2Adjusted: %s", ratioLevel2Adjusted);
-        Debug("ratioLevel3Adjusted: %s", ratioLevel3Adjusted);
         if((ret.totalCountBeforeAdded > 0) && (ret.totalCountBeforeAdded >= level1) && (ratioLevel1Adjusted === false)) {
             Debug("total account reached level-1: %s", ret.totalCountBeforeAdded);
             Debug("adjust count from %s to %s", count, Math.floor(count * level1DampingRatio));
