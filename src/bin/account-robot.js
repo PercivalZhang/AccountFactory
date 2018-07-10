@@ -7,10 +7,10 @@ const Debug = require('debug')('factory:account-robot');
 
 Debug(__dirname);
 
-let count = 2;
-const level1 = 1000;
-const level2 = 1010;
-const level3 = 1020;
+let count = 10;
+const level1 = 1645;
+const level2 = 1665;
+const level3 = 1680;
 const max = 100000;
 let ratioLevel1Adjusted = false;
 let ratioLevel2Adjusted = false;
