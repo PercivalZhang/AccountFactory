@@ -21,7 +21,7 @@ const level1DampingRatio = 0.8;
 const level2DampingRatio = 0.6;
 const level3DampingRatio = 0.4;
 
-new CronJob('* */5 1-16 * * *', function () {
+new CronJob('*/5 * * * * *', function () {
     console.log("add newAccounts...");
     /*
     acccountService.newAccounts(count).then(ret => {
