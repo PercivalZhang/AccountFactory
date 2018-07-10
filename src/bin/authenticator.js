@@ -10,7 +10,7 @@ const Debug = require('debug')('factory:authenticator');
 
 Debug(__dirname);
 
-new CronJob('* */1 * * * *', function () {
+new CronJob('*/60 * * * * *', function () {
     const authCode = randomstring.generate({
         length: 10,
         charset: 'hex'
