@@ -23,6 +23,8 @@ const DBConnection = new Sequelize(MysqlConfig.database, MysqlConfig.username, M
         // if you don't want that, set the following
         freezeTableName: true
     },
+    // disable logging; default: console.log
+    logging: false,
     pool: {
         max:    MysqlConfig.poolConfig.max,
         min:    MysqlConfig.poolConfig.min,

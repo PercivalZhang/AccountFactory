@@ -22,7 +22,9 @@ const level2DampingRatio = 0.6;
 const level3DampingRatio = 0.4;
 
 new CronJob('* */5 1-16 * * *', function () {
+    console.log("add newAccounts...");
     acccountService.newAccounts(count).then(ret => {
+        console.log("total account: %s", ret.totalCountBeforeAdded);
         if((ret.totalCountBeforeAdded > 0) && (ret.totalCountBeforeAdded >= level1) && (ratioLevel1Adjusted === false)) {
             Debug("total account reached level-1: %s", ret.totalCountBeforeAdded);
             Debug("adjust count from %s to %s", count, Math.floor(count * level1DampingRatio));
