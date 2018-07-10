@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel -w src/ -d dist --source-maps",
+    "start-robot": "DEBUG='factory:*' node dist/bin/account-robot.js",
     "start-auth": "DEBUG='factory:*' node dist/bin/authenticator.js",
     "start": "DEBUG='factory:*' node dist/bin/server-account-factory.js",
     "deploy": "./deploy.sh",
@@ -21,6 +22,7 @@
     "debug": "^3.1.0",
     "dotenv": "^6.0.0",
     "eth-ecies": "^1.0.3",
+    "ethjs-account": "^0.1.4",
     "keythereum": "^1.0.4",
     "mysql2": "^1.5.3",
     "npm": "^6.1.0",

@@ -41,6 +41,25 @@
         "NODE_ENV": "debug",
         "DEBUG"   : "*"
       }
+    },
+    {
+      // Application #robot
+      "name"        : "account-robot",
+      "script"      : "dist/bin/account-robot.js",
+      "watch"       : false,
+      "merge_logs"  : true,
+      "max_memory_restart"  : "50M",
+      "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+      "out_file"          : "log/account-factory/stdout-robot.log",
+      "error_file"        : "log/account-factory/stderr-robot.log",
+      "env_private": {
+        "NODE_ENV": "debug",
+        "DEBUG"   : "*"
+      },
+      "env_main": {
+        "NODE_ENV": "debug",
+        "DEBUG"   : "*"
+      }
     }
   ]
 }

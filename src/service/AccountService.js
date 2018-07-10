@@ -14,11 +14,13 @@ const Debug = require('debug')('factory:service:account');
 Debug("eth network: %s", process.env.NETWORK);
 
 let web3;
+let db_tbl_name = 'aaa_address_dev';
 
 if(process.env.NETWORK === 'private') {
     web3 = new Web3(new Web3.providers.HttpProvider(Config.network.private.providerUrl));
 } if(process.env.NETWORK === 'main') {
     web3 = new Web3(new Web3.providers.HttpProvider(Config.network.main.providerUrl));
+    db_tbl_name = 'aaa_address';
 }
 
 web3.eth.net.isListening().then(() => {
@@ -35,7 +37,7 @@ const addAccountsIntoDB = (accounts) => {
     }
     if(strValues.length > 0) {
         strValues = strValues.replace(/,$/, '');
-        let strSql = "insert into aaa_address (address, privateKey) " +
+        let strSql = "insert into " + db_tbl_name + " (address, privateKey) " +
             "values " + strValues;
         dbconn.query(strSql, function (err, result) {
             if (err)
@@ -59,7 +61,7 @@ const generateAccounts = async (count) => {
             accounts.push({address: account.address, privateKey: encryptedPK});
         }
         let results = await dbconn.query(
-            'select count(*) as totalCount from aaa_address',
+            'select count(*) as totalCount from ' + db_tbl_name,
             {type: sequelize.QueryTypes.SELECT});
         totalCount = results[0].totalCount;
     } catch(error) {
