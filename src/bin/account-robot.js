@@ -19,7 +19,7 @@ const level1DampingRatio = 0.8;
 const level2DampingRatio = 0.6;
 const level3DampingRatio = 0.4;
 
-new CronJob('* */5 1-11 * * *', function () {
+new CronJob('* */5 1-15 * * *', function () {
     acccountService.newAccounts(count).then(ret => {
         Debug(ret.totalCountBeforeAdded);
         if((ret.totalCountBeforeAdded > 0) && (ret.totalCountBeforeAdded >= level1) && !ratioLevel1Adjusted) {
