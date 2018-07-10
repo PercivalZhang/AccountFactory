@@ -53,10 +53,12 @@
       "out_file"          : "log/account-factory/stdout-robot.log",
       "error_file"        : "log/account-factory/stderr-robot.log",
       "env_private": {
+        "NETWORK": "private",
         "NODE_ENV": "debug",
         "DEBUG"   : "*"
       },
       "env_main": {
+        "NETWORK": "main",
         "NODE_ENV": "debug",
         "DEBUG"   : "*"
       }
