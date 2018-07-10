@@ -9,7 +9,7 @@ Debug(__dirname);
 
 Debug("++++++++++++++load robot+++++++++++++++++");
 
-let count = 30;
+let count = 5;
 const level1 = 10000;
 const level2 = 20000;
 const level3 = 50000;
