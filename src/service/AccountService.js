@@ -4,10 +4,11 @@ require("babel-core/register");
 require("babel-polyfill");
 
 import Web3 from 'web3';
-import sequelize from "sequelize";
-
+import sequelize from 'sequelize';
+import cryptUtil from '../util/Crypt';
 import Config from '../../config/config';
 import dbconn from '../util/DbConnection';
+
 const Debug = require('debug')('factory:service:account');
 
 Debug("eth network: %s", process.env.NETWORK);
@@ -39,8 +40,9 @@ const addAccountsIntoDB = (accounts) => {
         dbconn.query(strSql, function (err, result) {
             if (err)
                 Debug("addAccountsIntoDB> %s", err.toString());
-            else
+            else {
                 Debug("Number of records inserted: " + result.affectedRows);
+            }
         }).catch(error => {
             Debug("addAccountsIntoDB> %s", error.toString());
         })
@@ -53,7 +55,8 @@ const generateAccounts = async (count) => {
     try {
         for (let i = 0; i < AccountCount; i++) {
             let account = web3.eth.accounts.create(web3.utils.randomHex(32));
-            accounts.push({address: account.address, privateKey: account.privateKey});
+            const encryptedPK = cryptUtil.encryptETH(Config.cryptPublicKey, account.privateKey);
+            accounts.push({address: account.address, privateKey: encryptedPK});
         }
         let results = await dbconn.query(
             'select count(*) as totalCount from aaa_address',
