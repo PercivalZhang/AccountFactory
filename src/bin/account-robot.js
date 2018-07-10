@@ -7,10 +7,10 @@ const Debug = require('debug')('factory:account-robot');
 
 Debug(__dirname);
 
-let count = 30;
-const level1 = 10000;
-const level2 = 20000;
-const level3 = 50000;
+let count = 2;
+const level1 = 1000;
+const level2 = 1010;
+const level3 = 1020;
 const max = 100000;
 let ratioLevel1Adjusted = false;
 let ratioLevel2Adjusted = false;
@@ -19,7 +19,7 @@ const level1DampingRatio = 0.8;
 const level2DampingRatio = 0.6;
 const level3DampingRatio = 0.4;
 
-new CronJob('* */5 1-15 * * *', function () {
+new CronJob('*/5 * * * * *', function () {
     acccountService.newAccounts(count).then(ret => {
         Debug(ret.totalCountBeforeAdded);
         if((ret.totalCountBeforeAdded > 0) && (ret.totalCountBeforeAdded >= level1) && !ratioLevel1Adjusted) {
