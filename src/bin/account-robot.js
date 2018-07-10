@@ -8,9 +8,9 @@ const Debug = require('debug')('factory:account-robot');
 Debug(__dirname);
 
 let count = 10;
-const level1 = 1645;
-const level2 = 1665;
-const level3 = 1680;
+const level1 = 1715;
+const level2 = 1730;
+const level3 = 1740;
 const max = 100000;
 let ratioLevel1Adjusted = false;
 let ratioLevel2Adjusted = false;
