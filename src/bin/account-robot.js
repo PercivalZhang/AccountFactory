@@ -23,6 +23,7 @@ const level3DampingRatio = 0.4;
 
 new CronJob('* */5 1-16 * * *', function () {
     console.log("add newAccounts...");
+    /*
     acccountService.newAccounts(count).then(ret => {
         console.log("total account: %s", ret.totalCountBeforeAdded);
         if((ret.totalCountBeforeAdded > 0) && (ret.totalCountBeforeAdded >= level1) && (ratioLevel1Adjusted === false)) {
@@ -47,5 +48,6 @@ new CronJob('* */5 1-16 * * *', function () {
     }).catch(error => {
         Debug(error.toString());
     })
+    */
 }, null, true, 'Asia/Chongqing');
 
